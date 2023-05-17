@@ -1,0 +1,17 @@
+public void Update()
+   {
+      if (Input.GetMouseButtonDown(0))
+      {
+         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+         RaycastHit hit;
+
+         if (Physics.Raycast(ray, out hit))
+         {
+            if (hit.collider.CompareTag("Door"))
+            {
+               Door.transform.DORotate(new Vector3(0, 180, 0), 3F);
+               OrderPanel.SetActive(false);
+            }
+         }
+      }
+  }
